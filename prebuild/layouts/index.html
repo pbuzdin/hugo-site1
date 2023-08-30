@@ -1,0 +1,10 @@
+{{/* prebuild/layouts/index.html */}}
+{{ with resources.GetRemote "https://monsters-api.netlify.app/" }}
+  {{ $monsters := unmarshal .Content }}
+  {{ range $monsters }}
+    {{/* 1. */}} {{ $string := jsonify . }} 
+    {{/* 2. */}} {{ $filename := printf "monster/%s.md" (urlize .title) }} 
+    {{/* 3. */}} {{ $resource := resources.FromString $filename $string }} 
+    {{/* 4. */}} {{ $file := $resource.RelPermalink }} 
+  {{ end }}
+{{ end }}

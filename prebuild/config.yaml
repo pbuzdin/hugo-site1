@@ -1,0 +1,12 @@
+# config.yaml
+disableKinds:
+- sitemap
+- taxonomy
+- term
+- tag
+outputs:
+  home:
+  - html
+# caches:
+#   getresource:
+#     maxAge: 6h
